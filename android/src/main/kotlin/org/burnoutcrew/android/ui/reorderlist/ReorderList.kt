@@ -97,6 +97,7 @@ private fun VerticalReorderList(
 ) {
     LazyColumn(
         state = state.listState,
+        contentPadding = PaddingValues(top=60.dp),
         modifier = modifier
             .then(Modifier.reorderable(state, onMove = onMove, canDragOver = canDragOver))
     ) {
@@ -119,6 +120,7 @@ private fun VerticalReorderList(
                         .draggedItem(state.offsetByKey(item.key))
                         .background(MaterialTheme.colors.surface)
                         .detectReorderAfterLongPress(state)
+                        .height(60.dp)
                 ) {
                     Text(
                         text = item.title,
